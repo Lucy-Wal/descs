@@ -10,6 +10,9 @@
 #' @examples
 #' data <- mtcars
 #' descs(data)
+#' 
+require(dplyr)
+require(tidyr)
 descs <- function(data) {
   var_names <- colnames(data)
   
