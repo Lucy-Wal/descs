@@ -16,7 +16,4 @@ A data frame with descriptive statistics and correlations.
 This function calculates descriptive statistics (mean, SD) and
 a correlation matrix with confidence intervals for a dataset.
 }
-\examples{
-data <- mtcars
-descs(data)
 }
