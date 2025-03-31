@@ -2,8 +2,7 @@ Package: descs
 Title: Generate data frames for APA style descriptive statistics tables.
 Version: 0.0.0.9000
 Authors@R: 
-    person("Lucy", "Waldren", role = c("aut"),
-    person("Mitch", "Callan", role = c("cre")
+    person("Lucy", "Waldren", role = c("aut")
 Description: This package create a data.frame for an APA formatted descriptive statistics table, including M, SD, and half-stacked correlation table (r, p, 95%CI).
 License: CC-BY 4.0 license
 Encoding: UTF-8
