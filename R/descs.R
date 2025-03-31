@@ -17,9 +17,9 @@ descs <- function(data) {
   var_names <- colnames(data)
   
   desc_stats <- data %>%
-    summarise(across(all_of(var_names), list(mean = ~mean(., na.rm = TRUE),
+    dplyr::summarise(across(all_of(var_names), list(mean = ~mean(., na.rm = TRUE),
                                              sd = ~sd(., na.rm = TRUE)))) %>%
-    pivot_longer(cols = everything(),
+    tidyr::pivot_longer(cols = everything(),
                  names_to = c("variable", ".value"),
                  names_sep = "_")
   
