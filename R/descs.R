@@ -16,15 +16,15 @@ require(tidyr)
 descs <- function(data) {
   var_names <- colnames(data)
   
-  desc_stats <- data %>%
-    dplyr::summarise(across(all_of(var_names), list(mean = ~mean(., na.rm = TRUE),
-                                             sd = ~sd(., na.rm = TRUE)))) %>%
-    tidyr::pivot_longer(cols = everything(),
-                 names_to = c("variable", ".value"),
-                 names_sep = "_")
+
+  desc_stats_temp <- dplyr::summarise(data, across(all_of(var_names), list(mean = ~mean(., na.rm = TRUE), sd = ~sd(., na.rm = TRUE))))
   
-  # Create the "Mean (SD)" formatted labels
+  #Pivot
+  desc_stats <- tidyr::pivot_longer(desc_stats_temp, cols = everything(), names_to = c("variable", ".value"), names_sep = "_")
+  
+  #Format
   mean_sd_col <- paste0(round(desc_stats$mean, 2), " (", round(desc_stats$sd, 2), ")")
+  
   
   # Create an empty matrix to store correlation results
   n <- length(var_names)
